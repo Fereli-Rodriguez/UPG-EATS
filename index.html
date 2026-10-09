@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UPG EATS | Emprende en tu uni</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --naranja: #ff6b35;
+            --amarillo: #ffd166;
+            --rosa: #ff8fab;
+            --verde: #b7e4c7;
+            --morado: #cdb4db;
+            --oscuro: #292524;
+            --fondo: #fffaf5;
+            --blanco: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fondo);
+            color: var(--oscuro);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+
+        header {
+            width: 100%;
+            background: var(--blanco);
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            color: var(--oscuro);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--naranja);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--naranja);
+        }
+
+        .boton-nav {
+            background: var(--naranja);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .boton-nav:hover {
+            background: #e95524;
+            color: white;
+        }
+
+        /* PORTADA */
+
+        .hero {
+            padding: 75px 7%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+            background:
+                radial-gradient(circle at 85% 20%, #ffe3a8 0, transparent 25%),
+                radial-gradient(circle at 10% 90%, #ffd9e4 0, transparent 30%),
+                var(--fondo);
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background: #ffe7dc;
+            color: #c44920;
+            padding: 9px 15px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--naranja);
+        }
+
+        .hero p {
+            color: #6b625d;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 28px;
+        }
+
+        .botones-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 15px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .boton:hover {
+            transform: translateY(-3px);
+        }
+
+        .boton-principal {
+            background: var(--naranja);
+            color: white;
+            box-shadow: 0 6px 15px rgba(255, 107, 53, 0.2);
+        }
+
+        .boton-principal:hover {
+            background: #e95524;
+        }
+
+        .boton-secundario {
+            background: white;
+            border: 2px solid #eee0d8;
+        }
+
+        .boton-secundario:hover {
+            background: #fff0e8;
+        }
+
+        /* ILUSTRACIÓN DE LA PORTADA */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 320px;
+        }
+
+        .plato {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--amarillo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 130px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transform: rotate(-7deg);
+        }
+
+        .burbuja {
+            position: absolute;
+            padding: 12px 16px;
+            border-radius: 18px;
+            background: white;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transform: rotate(7deg);
+        }
+
+        .burbuja-uno {
+            top: 20px;
+            right: -35px;
+        }
+
+        .burbuja-dos {
+            bottom: 25px;
+            left: -40px;
+        }
+
+        /* FRANJA DE INFORMACIÓN */
+
+        .beneficios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 28px 7%;
+            background: white;
+            border-top: 1px solid #f4e9e2;
+            border-bottom: 1px solid #f4e9e2;
+        }
+
+        .beneficio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .beneficio-icono {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            background: #fff0e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 23px;
+            flex-shrink: 0;
+        }
+
+        .beneficio strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .beneficio small {
+            color: #817771;
+            font-size: 12px;
+        }
+
+        /* SECCIÓN DE EMPRENDIMIENTOS */
+
+        .seccion {
+            padding: 75px 7%;
+        }
+
+        .encabezado-seccion {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .subtitulo {
+            color: var(--naranja);
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .encabezado-seccion h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .encabezado-seccion p {
+            color: #817771;
+            line-height: 1.7;
+            max-width: 570px;
+        }
+
+        .ver-todos {
+            color: var(--naranja);
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* TARJETAS DE PRODUCTOS */
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #f0e7e1;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .producto-imagen {
+            height: 205px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 95px;
+            position: relative;
+        }
+
+        .fondo-rosa {
+            background: #ffe0e8;
+        }
+
+        .fondo-amarillo {
+            background: #fff0bd;
+        }
+
+        .fondo-verde {
+            background: #d8f3dc;
+        }
+
+        .fondo-morado {
+            background: #e9ddf5;
+        }
+
+        .fondo-azul {
+            background: #dceeff;
+        }
+
+        .fondo-naranja {
+            background: #ffe2cd;
+        }
+
+        .etiqueta-producto {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            padding: 8px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .contenido-tarjeta {
+            padding: 22px;
+        }
+
+        .nombre-negocio {
+            color: var(--naranja);
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .contenido-tarjeta h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            font-size: 13px;
+            color: #817771;
+            line-height: 1.6;
+            min-height: 42px;
+            margin-bottom: 18px;
+        }
+
+        .detalle-producto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-top: 1px solid #f0e7e1;
+            padding-top: 16px;
+        }
+
+        .precio {
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .precio small {
+            font-size: 11px;
+            font-weight: normal;
+            color: #817771;
+        }
+
+        .contactar {
+            display: inline-block;
+            background: #fff0e8;
+            color: #c44920;
+            padding: 11px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .contactar:hover {
+            background: var(--naranja);
+            color: white;
+        }
+
+        .horario {
+            color: #817771;
+            font-size: 12px;
+            margin-top: 14px;
+            line-height: 1.6;
+        }
+
+        /* SECCIÓN PARA EMPRENDEDORES */
+
+        .seccion-emprendedores {
+            padding: 20px 7% 75px;
+        }
+
+        .bloque-emprendedores {
+            background: var(--oscuro);
+            color: white;
+            border-radius: 30px;
+            padding: 55px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 30px;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bloque-emprendedores .subtitulo {
+            color: var(--amarillo);
+        }
+
+        .bloque-emprendedores h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .bloque-emprendedores p {
+            color: #ded8d4;
+            line-height: 1.8;
+            max-width: 550px;
+            margin-bottom: 25px;
+        }
+
+        .boton-amarillo {
+            display: inline-block;
+            background: var(--amarillo);
+            color: var(--oscuro);
+            padding: 15px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .boton-amarillo:hover {
+            background: #ffe08b;
+        }
+
+        .emprendedor-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 140px;
+            min-height: 200px;
+        }
+
+        /* CÓMO FUNCIONA */
+
+        .como-funciona {
+            background: white;
+            padding: 65px 7%;
+            text-align: center;
+        }
+
+        .como-funciona h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 12px;
+        }
+
+        .texto-seccion {
+            color: #817771;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .pasos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .paso {
+            padding: 25px;
+            border-radius: 20px;
+            background: var(--fondo);
+        }
+
+        .numero-paso {
+            width: 48px;
+            height: 48px;
+            background: var(--amarillo);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 18px;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .paso h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .paso p {
+            color: #817771;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            background: var(--oscuro);
+            color: white;
+            padding: 30px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-footer {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .logo-footer span {
+            color: var(--naranja);
+        }
+
+        footer p {
+            color: #c7bfba;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #e5ded9;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--amarillo);
+        }
+
+        /* DISEÑO PARA CELULARES Y TABLETS */
+
+        @media (max-width: 900px) {
+            header {
+                padding: 16px 5%;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 55px 5%;
+                gap: 20px;
+            }
+
+            .plato {
+                width: 240px;
+                height: 240px;
+                font-size: 100px;
+            }
+
+            .productos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seccion {
+                padding: 60px 5%;
+            }
+
+            .seccion-emprendedores {
+                padding: 10px 5% 60px;
+            }
+
+            .bloque-emprendedores {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .boton-nav {
+                padding: 9px 13px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 45px 6%;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .botones-hero {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 260px;
+            }
+
+            .plato {
+                width: 220px;
+                height: 220px;
+                font-size: 95px;
+            }
+
+            .burbuja-uno {
+                right: -15px;
+            }
+
+            .burbuja-dos {
+                left: -15px;
+            }
+
+            .beneficios {
+                grid-template-columns: 1fr;
+                padding: 25px 8%;
+                gap: 20px;
+            }
+
+            .beneficio {
+                justify-content: flex-start;
+            }
+
+            .encabezado-seccion {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .productos {
+                grid-template-columns: 1fr;
+            }
+
+            .producto-imagen {
+                height: 220px;
+            }
+
+            .bloque-emprendedores {
+                grid-template-columns: 1fr;
+                padding: 30px 24px;
+                text-align: center;
+            }
+
+            .emprendedor-visual {
+                font-size: 100px;
+                min-height: 130px;
+            }
+
+            .pasos {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+
+    <header>
+        <a href="#inicio" class="logo">UPG <span>EATS.</span></a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#emprendimientos">Comida</a>
+            <a href="#como-funciona">¿Cómo funciona?</a>
+            <a href="#emprende" class="boton-nav">Vende en UPG</a>
+        </nav>
+    </header>
+
+
+    <!-- PORTADA PRINCIPAL -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-contenido">
+
+            <div class="etiqueta">
+                🍟 Hecho por estudiantes, para estudiantes
+            </div>
+
+            <h1>
+                Tu próximo<br>
+                antojo está en<br>
+                <span>la uni.</span>
+            </h1>
+
+            <p>
+                ¿Hambre entre clases? Descubre los emprendimientos
+                de la comunidad UPG. Encuentra algo rico, conoce a
+                quienes lo preparan y apoya el talento estudiantil.
+            </p>
+
+            <div class="botones-hero">
+                <a href="#emprendimientos" class="boton boton-principal">
+                    Explorar comida 🍔
+                </a>
+
+                <a href="#emprende" class="boton boton-secundario">
+                    Quiero vender ✨
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+            <div class="plato">
+                🍓
+
+                <div class="burbuja burbuja-uno">
+                    ¡Qué rico! 😋
+                </div>
+
+                <div class="burbuja burbuja-dos">
+                    Desde $15 MXN 💸
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- BENEFICIOS -->
+
+    <section class="beneficios">
+
+        <div class="beneficio">
+            <div class="beneficio-icono">🍓</div>
+            <div>
+                <strong>Antojitos para todos</strong>
+                <small>Descubre qué venden tus compañeros.</small>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <div class="beneficio-icono">💸</div>
+            <div>
+                <strong>Precios estudiantiles</strong>
+                <small>Opciones para tu bolsillo.</small>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <div class="beneficio-icono">🧡</div>
+            <div>
+                <strong>Apoya el talento UPG</strong>
+                <small>Consume local y apoya a estudiantes.</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- EMPRENDIMIENTOS Y PRODUCTOS -->
+
+    <section class="seccion" id="emprendimientos">
+
+        <div class="encabezado-seccion">
+
+            <div>
+                <div class="subtitulo">Se te va a antojar</div>
+
+                <h2>¿Qué hay de bueno hoy?</h2>
+
+                <p>
+                    Date una vuelta por los emprendimientos de tus
+                    compañeros. Hay opciones para quitarte el hambre
+                    o darte un gustito entre clases.
+                </p>
+            </div>
+
+            <a href="#emprende" class="ver-todos">
+                ¿Tienes un negocio? →
+            </a>
+
+        </div>
+
+
+        <div class="productos">
+
+            <!-- PRODUCTO 1 -->
+
+            <article class="tarjeta">
+
+                <div class="producto-imagen fondo-rosa">
+                    🍓
+                    <span class="etiqueta-producto">Favorito de la semana</span>
+                </div>
+
+                <div class="contenido-tarjeta">
+
+                    <div class="nombre-negocio">FRESAS CON CARIÑO</div>
+
+                    <h3>Fresas con crema</h3>
+
+                    <p class="descripcion">
+                        Fresas con crema dulce, perfectas para
+                        darte un antojo durante el día.
+                    </p>
+
+                    <div class="detalle-producto">
+                        <div class="precio">
+                            $50 <small>MXN</small>
+                        </div>
+
+                        <a href="#emprende" class="contactar">
+                            Ver contacto
+                        </a>
+                    </div>
+
+                    <div class="horario">
+                        📅 Horario de ejemplo: lunes a viernes<br>
+                        🕒 10:00 a. m. - 2:00 p. m.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <article class="tarjeta">
+
+                <div class="producto-imagen fondo-amarillo">
+                    🍰
+                    <span class="etiqueta-producto">Algo dulce</span>
+                </div>
+
+                <div class="contenido-tarjeta">
+
+                    <div class="nombre-negocio">LA CARLOTA FELIZ</div>
+
+                    <h3>Vasito de Carlota</h3>
+
+                    <p class="descripcion">
+                        Un postre cremosito y fresco para acompañar
+                        tu descanso entre clases.
+                    </p>
+
+                    <div class="detalle-producto">
+                        <div class="precio">
+                            $25 <small>MXN</small>
+                        </div>
+
+                        <a href="#emprende" class="contactar">
+                            Ver contacto
+                        </a>
+                    </div>
+
+                    <div class="horario">
+                        📅 Horario de ejemplo: lunes a jueves<br>
+                        🕒 11:00 a. m. - 3:00 p. m.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <article class="tarjeta">
+
+                <div class="producto-imagen fondo-verde">
+                    🥤
+                    <span class="etiqueta-producto">Para el calor</span>
+                </div>
+
+                <div class="contenido-tarjeta">
+
+                    <div class="nombre-negocio">BOLIS DE LA UNI</div>
+
+                    <h3>Bolis de sabores</h3>
+
+                    <p class="descripcion">
+                        Una opción fría y económica para refrescarte
+                        entre una clase y otra.
+                    </p>
+
+                    <div class="detalle-producto">
+                        <div class="precio">
+                            $15 <small>MXN</small>
+                        </div>
+
+                        <a href="#emprende" class="contactar">
+                            Ver contacto
+                        </a>
+                    </div>
+
+                    <div class="horario">
+                        📅 Horario de ejemplo: lunes a viernes<br>
+                        🕒 9:00 a. m. - 1:00 p. m.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <article class="tarjeta">
+
+                <div class="producto-imagen fondo-morado">
+                    🧁
+                    <span class="etiqueta-producto">Recién horneado</span>
+                </div>
+
+                <div class="contenido-tarjeta">
+
+                    <div class="nombre-negocio">DULCE RECREO</div>
+
+                    <h3>Mini cupcakes</h3>
+
+                    <p class="descripcion">
+                        Cupcakes decorados para darte un gusto
+                        o compartir algo dulce con tus amigos.
+                    </p>
+
+                    <div class="detalle-producto">
+                        <div class="precio">
+                            $20 <small>MXN</small>
+                        </div>
+
+                        <a href="#emprende" class="contactar">
+                            Ver contacto
+                        </a>
+                    </div>
+
+                    <div class="horario">
+                        📅 Horario de ejemplo: martes y jueves<br>
+                        🕒 10:00 a. m. - 2:00 p. m.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 5 -->
+
+            <article class="tarjeta">
+
+                <div class="producto-imagen fondo-azul">
+                    🥪
+                    <span class="etiqueta-producto">Para el hambre</span>
+                </div>
+
+                <div class="contenido-tarjeta">
+
+                    <div class="nombre-negocio">EL BREAK</div>
+
+                    <h3>Sandwich preparado</h3>
+
+                    <p class="descripcion">
+                        Una opción práctica para cuando tienes
+                        poco tiempo entre clases.
+                    </p>
+
+                    <div class="detalle-producto">
+                        <div class="precio">
+                            $35 <small>MXN</small>
+                        </div>
+
+                        <a href="#emprende" class="contactar">
+                            Ver contacto
+                        </a>
+                    </div>
+
+                    <div class="horario">
+                        📅 Horario de ejemplo: lunes a viernes<br>
+                        🕒 8:00 a. m. - 12:00 p. m.
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 6 -->
+
+            <article class="tarjeta">
+
+                <div class="producto-imagen fondo-naranja">
+                    🍪
+                    <span class="etiqueta-producto">Para compartir</span>
+                </div>
+
+                <div class="contenido-tarjeta">
+
+                    <div class="nombre-negocio">HORNO UNIVERSITARIO</div>
+
+                    <h3>Galletas caseras</h3>
+
+                    <p class="descripcion">
+                        Galletas para acompañar tu café o
+                        disfrutar algo rico durante el receso.
+                    </p>
+
+                    <div class="detalle-producto">
+                        <div class="precio">
+                            $18 <small>MXN</small>
+                        </div>
+
+                        <a href="#emprende" class="contactar">
+                            Ver contacto
+                        </a>
+                    </div>
+
+                    <div class="horario">
+                        📅 Horario de ejemplo: lunes a viernes<br>
+                        🕒 10:00 a. m. - 1:00 p. m.
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVITACIÓN A EMPRENDEDORES -->
+
+    <section class="seccion-emprendedores" id="emprende">
+
+        <div class="bloque-emprendedores">
+
+            <div>
+
+                <div class="subtitulo">Este espacio también es tuyo</div>
+
+                <h2>
+                    ¿Vendes algo en la UPG?<br>
+                    ¡Queremos conocerte!
+                </h2>
+
+                <p>
+                    Si tienes un emprendimiento de comida, postres,
+                    bebidas o cualquier antojito, UPG EATS es un
+                    espacio para que más estudiantes conozcan tus
+                    productos, precios y horarios.
+                </p>
+
+                <a href="registro.html" class="boton-amarillo">
+                    Registrar mi emprendimiento →
+                </a>
+
+                <p style="font-size: 12px; margin-top: 15px; margin-bottom: 0;">
+                    También podrás compartir tu información mediante
+                    el formulario al que llevará el código QR.
+                </p>
+
+            </div>
+
+            <div class="emprendedor-visual">
+                🧑‍🍳
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CÓMO FUNCIONA -->
+
+    <section class="como-funciona" id="como-funciona">
+
+        <div class="subtitulo">Así de fácil</div>
+
+        <h2>¿Cómo funciona UPG EATS?</h2>
+
+        <p class="texto-seccion">
+            Una forma sencilla de encontrar antojitos y apoyar
+            los emprendimientos de la universidad.
+        </p>
+
+        <div class="pasos">
+
+            <article class="paso">
+
+                <div class="numero-paso">1</div>
+
+                <h3>Explora</h3>
+
+                <p>
+                    Revisa los negocios y descubre los productos
+                    que ofrecen tus compañeros.
+                </p>
+
+            </article>
+
+            <article class="paso">
+
+                <div class="numero-paso">2</div>
+
+                <h3>Elige tu antojo</h3>
+
+                <p>
+                    Consulta los precios, horarios y datos de
+                    contacto para preguntar por un producto.
+                </p>
+
+            </article>
+
+            <article class="paso">
+
+                <div class="numero-paso">3</div>
+
+                <h3>Apoya a estudiantes</h3>
+
+                <p>
+                    Contacta directamente con quien vende y
+                    apoya los emprendimientos de la comunidad UPG.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <div>
+            <div class="logo-footer">UPG <span>EATS.</span></div>
+
+            <p style="margin-top: 8px;">
+                Antojitos, talento y comunidad universitaria.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#emprendimientos">Comida</a>
+            <a href="#emprende">Emprende</a>
+            <a href="#como-funciona">Cómo funciona</a>
+        </div>
+
+        <p>
+            © 2026 UPG EATS. Proyecto estudiantil.
+        </p>
+
+    </footer>
+
+</body>
+</html>

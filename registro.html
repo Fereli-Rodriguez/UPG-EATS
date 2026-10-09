@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar emprendimiento | UPG EATS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffaf5;
+            color: #292524;
+            padding: 25px 15px;
+        }
+
+        .contenedor {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .volver {
+            display: inline-block;
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        .encabezado {
+            margin-bottom: 25px;
+        }
+
+        .encabezado h1 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .encabezado p {
+            color: #746a64;
+            line-height: 1.7;
+        }
+
+        form {
+            background: white;
+            border: 1px solid #f0e7e1;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+        }
+
+        .seccion {
+            margin-bottom: 30px;
+        }
+
+        .seccion h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .ayuda {
+            font-size: 13px;
+            color: #817771;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #e5dcd5;
+            border-radius: 11px;
+            font-size: 14px;
+            font-family: inherit;
+            background: white;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid #ffb99d;
+            border-color: #ff6b35;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .dias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .dia {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 12px;
+            background: #fff5ef;
+            border-radius: 10px;
+            font-size: 13px;
+        }
+
+        .dia input {
+            width: auto;
+        }
+
+        .producto {
+            padding: 18px;
+            background: #fffaf5;
+            border: 1px solid #f0e7e1;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .producto-cabecera {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .producto-cabecera h3 {
+            font-size: 16px;
+        }
+
+        .quitar {
+            background: #ffe4e4;
+            color: #a52828;
+            border: none;
+            padding: 8px 11px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .agregar {
+            background: #fff0e8;
+            color: #c44920;
+        }
+
+        .enviar {
+            width: 100%;
+            background: #ff6b35;
+            color: white;
+            margin-top: 12px;
+        }
+
+        .enviar:hover {
+            background: #e95524;
+        }
+
+        .aviso {
+            background: #fff3cd;
+            border: 1px solid #f1d98a;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .resultado {
+            display: none;
+            padding: 18px;
+            margin-top: 20px;
+            border-radius: 12px;
+            background: #e4f7e9;
+            color: #205d32;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #817771;
+            font-size: 12px;
+        }
+
+        @media (max-width: 550px) {
+            form {
+                padding: 20px 16px;
+            }
+
+            .encabezado h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="contenedor">
+
+        <a class="volver" href="index.html">← Volver a UPG EATS</a>
+
+        <div class="logo">UPG <span>EATS.</span></div>
+
+        <div class="encabezado">
+            <h1>¡Registra tu emprendimiento! 🍓</h1>
+
+            <p>
+                ¿Vendes comida, postres, bebidas o antojitos en la UPG?
+                Comparte tu negocio para que otros estudiantes puedan
+                conocer tus productos.
+            </p>
+        </div>
+
+        <div class="aviso">
+            <strong>Importante:</strong> este es el formulario inicial.
+            Por ahora, los datos se procesan en esta página, pero todavía
+            no se envían a una base de datos ni se publican en el catálogo.
+        </div>
+
+        <form id="formulario">
+
+            <section class="seccion">
+                <h2>Información del emprendimiento</h2>
+
+                <p class="ayuda">
+                    Cuéntanos quién eres y qué vendes.
+                </p>
+
+                <div class="campo">
+                    <label for="negocio">Nombre de tu emprendimiento *</label>
+                    <input
+                        type="text"
+                        id="negocio"
+                        name="negocio"
+                        placeholder="Ej. Fresas con cariño"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="responsable">Nombre del responsable *</label>
+                    <input
+                        type="text"
+                        id="responsable"
+                        name="responsable"
+                        placeholder="Tu nombre"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">¿Qué tipo de productos vendes? *</label>
+
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Selecciona una categoría</option>
+                        <option>Postres y dulces</option>
+                        <option>Comida preparada</option>
+                        <option>Snacks y botanas</option>
+                        <option>Bebidas</option>
+                        <option>Comida saludable</option>
+                        <option>Otros</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="descripcion">Descripción del negocio *</label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        placeholder="Cuéntanos brevemente qué ofreces..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono de contacto *</label>
+
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Ej. 4771234567"
+                        inputmode="tel"
+                        required
+                    >
+                </div>
+
+            </section>
+
+
+            <section class="seccion">
+
+                <h2>Días y horarios de venta</h2>
+
+                <p class="ayuda">
+                    Selecciona los días en que normalmente vendes
+                    dentro de la universidad.
+                </p>
+
+                <div class="campo">
+                    <label>Días disponibles *</label>
+
+                    <div class="dias">
+                        <label class="dia">
+                            <input type="checkbox" name="dias" value="Lunes">
+                            Lunes
+                        </label>
+
+                        <label class="dia">
+                            <input type="checkbox" name="dias" value="Martes">
+                            Martes
+                        </label>
+
+                        <label class="dia">
+                            <input type="checkbox" name="dias" value="Miércoles">
+                            Miércoles
+                        </label>
+
+                        <label class="dia">
+                            <input type="checkbox" name="dias" value="Jueves">
+                            Jueves
+                        </label>
+
+                        <label class="dia">
+                            <input type="checkbox" name="dias" value="Viernes">
+                            Viernes
+                        </label>
+
+                        <label class="dia">
+                            <input type="checkbox" name="dias" value="Sábado">
+                            Sábado
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="horaInicio">Hora de inicio *</label>
+                    <input type="time" id="horaInicio" required>
+                </div>
+
+                <div class="campo">
+                    <label for="horaFin">Hora de cierre *</label>
+                    <input type="time" id="horaFin" required>
+                </div>
+
+            </section>
+
+
+            <section class="seccion">
+
+                <h2>Mis productos 🍰</h2>
+
+                <p class="ayuda">
+                    Agrega todos los productos que vendes. Cada uno debe
+                    tener nombre y precio.
+                </p>
+
+                <div id="listaProductos"></div>
+
+                <button
+                    type="button"
+                    class="boton agregar"
+                    id="agregarProducto"
+                >
+                    + Agregar otro producto
+                </button>
+
+            </section>
+
+
+            <section class="seccion">
+
+                <h2>Información adicional</h2>
+
+                <div class="campo">
+                    <label for="ubicacion">¿Dónde te pueden encontrar?</label>
+
+                    <input
+                        type="text"
+                        id="ubicacion"
+                        placeholder="Ej. Cerca de los edificios de laboratorios"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="instagram">Instagram o red social (opcional)</label>
+
+                    <input
+                        type="text"
+                        id="instagram"
+                        placeholder="@tuemprendimiento"
+                    >
+                </div>
+
+            </section>
+
+
+            <button type="submit" class="boton enviar">
+                Revisar mi registro
+            </button>
+
+            <div id="resultado" class="resultado" role="status"></div>
+
+        </form>
+
+        <footer>
+            UPG EATS © 2026 · Apoyando el talento estudiantil.
+        </footer>
+
+    </main>
+
+
+    <script>
+        const listaProductos = document.getElementById("listaProductos");
+        const formulario = document.getElementById("formulario");
+        const resultado = document.getElementById("resultado");
+
+        let numeroProductos = 0;
+
+        function agregarProducto() {
+            numeroProductos++;
+
+            const producto = document.createElement("div");
+            producto.className = "producto";
+
+            producto.innerHTML = `
+                <div class="producto-cabecera">
+                    <h3>Producto ${numeroProductos}</h3>
+
+                    <button
+                        type="button"
+                        class="quitar"
+                    >
+                        Quitar
+                    </button>
+                </div>
+
+                <div class="campo">
+                    <label>Nombre del producto *</label>
+
+                    <input
+                        type="text"
+                        class="nombre-producto"
+                        placeholder="Ej. Fresas con crema"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label>Precio en pesos mexicanos *</label>
+
+                    <input
+                        type="number"
+                        class="precio-producto"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Ej. 50"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label>Descripción del producto (opcional)</label>
+
+                    <textarea
+                        class="descripcion-producto"
+                        placeholder="Ingredientes, tamaños o sabores..."
+                    ></textarea>
+                </div>
+            `;
+
+            producto.querySelector(".quitar").addEventListener("click", function () {
+                producto.remove();
+                actualizarNumeros();
+            });
+
+            listaProductos.appendChild(producto);
+            actualizarNumeros();
+        }
+
+        function actualizarNumeros() {
+            const productos = document.querySelectorAll(".producto");
+
+            productos.forEach(function (producto, indice) {
+                producto.querySelector("h3").textContent =
+                    "Producto " + (indice + 1);
+            });
+        }
+
+        document
+            .getElementById("agregarProducto")
+            .addEventListener("click", agregarProducto);
+
+        formulario.addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            const diasSeleccionados = Array.from(
+                document.querySelectorAll('input[name="dias"]:checked')
+            ).map(function (dia) {
+                return dia.value;
+            });
+
+            if (diasSeleccionados.length === 0) {
+                resultado.style.display = "block";
+                resultado.textContent =
+                    "Selecciona al menos un día de venta.";
+                resultado.scrollIntoView({ behavior: "smooth" });
+                return;
+            }
+
+            const productos = Array.from(
+                document.querySelectorAll(".producto")
+            );
+
+            if (productos.length === 0) {
+                resultado.style.display = "block";
+                resultado.textContent =
+                    "Agrega al menos un producto con su precio.";
+                resultado.scrollIntoView({ behavior: "smooth" });
+                return;
+            }
+
+            const horaInicio = document.getElementById("horaInicio").value;
+            const horaFin = document.getElementById("horaFin").value;
+
+            if (horaFin <= horaInicio) {
+                resultado.style.display = "block";
+                resultado.textContent =
+                    "La hora de cierre debe ser posterior a la hora de inicio.";
+                resultado.scrollIntoView({ behavior: "smooth" });
+                return;
+            }
+
+            const datosProductos = productos.map(function (producto) {
+                return {
+                    nombre: producto.querySelector(".nombre-producto").value,
+                    precio: Number(
+                        producto.querySelector(".precio-producto").value
+                    ),
+                    descripcion: producto.querySelector(
+                        ".descripcion-producto"
+                    ).value
+                };
+            });
+
+            const datos = {
+                negocio: document.getElementById("negocio").value,
+                responsable: document.getElementById("responsable").value,
+                categoria: document.getElementById("categoria").value,
+                descripcion: document.getElementById("descripcion").value,
+                telefono: document.getElementById("telefono").value,
+                dias: diasSeleccionados,
+                horaInicio: horaInicio,
+                horaFin: horaFin,
+                productos: datosProductos,
+                ubicacion: document.getElementById("ubicacion").value,
+                instagram: document.getElementById("instagram").value
+            };
+
+            resultado.style.display = "block";
+            resultado.textContent =
+                "¡Revisión completada! El emprendimiento " +
+                datos.negocio +
+                " tiene " +
+                datos.productos.length +
+                " producto(s) registrado(s) en este formulario. " +
+                "Todavía falta conectar el envío a una base de datos " +
+                "para guardar el registro y publicarlo en UPG EATS.";
+
+            resultado.scrollIntoView({ behavior: "smooth" });
+
+            console.log("Datos de prueba del formulario:", datos);
+        });
+
+        agregarProducto();
+    </script>
+
+</body>
+</html>
